@@ -1,6 +1,7 @@
 let playerScore = 0;
 let cpuScore = 0;
 let playerChoice = "scissors";
+const gameMessage = document.querySelector(".gameMessage");
 
 function getComputerChoice() {
     let cpuNum = Math.floor(Math.random() * 3);
@@ -44,12 +45,12 @@ function capitalizeFirst(string){
 
 function game(){
     const cpuChoice = getComputerChoice();
-    document.querySelector(".gameMessage").textContent = (rockPaperScissors(playerChoice, cpuChoice));
+    gameMessage.textContent = (rockPaperScissors(playerChoice, cpuChoice));
     if (playerScore == 3){
-        document.querySelector(".gameMessage").textContent = ("Game over! Player wins!");
+        gameMessage.textContent = ("Game over! Player wins!");
     }
     else if (cpuScore == 3){
-        document.querySelector(".gameMessage").textContent = ("Game over! CPU wins!")
+        gameMessage.textContent = ("Game over! CPU wins!")
     }
     updateScore();
 }
@@ -59,25 +60,29 @@ const button = document.querySelectorAll("button");
 
 button.forEach(button => {
     button.addEventListener("click", event => {
-        if(event.target.textContent == "Play again?") return;
-        playerChoice = event.target.textContent;
-        game();
-        if(cpuScore == 3 || playerScore == 3){
-            disableButtons();
-        };
+        if(event.target.textContent != "Play again?") {
+            playerChoice = event.target.textContent;
+            game();
+            if(cpuScore == 3 || playerScore == 3){
+                gameOver();
+            }
+        }
     })  
 })
 
-function disableButtons(){
+function gameOver(){
     button.forEach(button => {
         button.disabled = true;
+        button.style.backgroundColor = "gray";
     })
+    playAgain.style.backgroundColor = "lime";
     playAgain.style.visibility = "visible";
     playAgain.disabled = false;
 }
 function enableButtons(){
     button.forEach(button => {
         button.disabled = false;
+        button.style.backgroundColor = "lime";
     })
 }
 
@@ -96,4 +101,5 @@ function restartGame(){
     playAgain.style.visibility = "hidden";
     updateScore();
     enableButtons();
+    gameMessage.textContent = "";
 }
