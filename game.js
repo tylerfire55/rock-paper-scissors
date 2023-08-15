@@ -1,5 +1,6 @@
 let playerScore = 0;
 let cpuScore = 0;
+let playerChoice = "scissors";
 
 function getComputerChoice() {
     let cpuNum = Math.floor(Math.random() * 3);
@@ -43,7 +44,6 @@ function capitalizeFirst(string){
 
 function game(){
     const cpuChoice = getComputerChoice();
-    const playerChoice = prompt();
     console.log(rockPaperScissors(playerChoice, cpuChoice));
     console.log(`Player ${playerScore} - ${cpuScore} CPU`);
     if (playerScore == 3){
@@ -56,5 +56,21 @@ function game(){
         playerScore = 0;
         cpuScore = 0;
     }
-    else {}
+    updateScore();
+}
+
+
+const button = document.querySelectorAll("button");
+button.forEach(button => {
+    button.addEventListener("click", event => {
+        playerChoice = event.target.textContent;
+        game();
+    })
+})
+
+
+
+function updateScore(){
+    document.querySelector(".playerScore").textContent = playerScore;
+    document.querySelector(".cpuScore").textContent = cpuScore;
 }

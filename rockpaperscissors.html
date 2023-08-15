@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Rock, Paper, Scissors!</title>
 </head>
 <body>
     <div class="title">Rock, Paper, Scissors!</div>
@@ -12,22 +16,23 @@
     <div class="gameChoices">
         <div class="rock">
             <div class="rockPic">ROCK!!!!</div>
-            <div class="rockName">Rock</div>
+            <button class="rockName">Rock</button>
         </div>
         <div class="paper">
             <div class="paperPic">PAPER!!!!</div>
-            <div class="paperName">Paper</div>
+            <button class="paperName">Paper</button>
         </div>
         <div class="scissors">
             <div class="scissorsPic">SCISSORS!!!!</div>
-            <div class="scissorsName">Scissors</div>
+            <button class="scissorsName">Scissors</button>
         </div>
     </div>
     <div class="scoreboard">
-        <div class="playerScore"></div>
-        <div class="divider"></div>
-        <div class="cpuScore"></div>
+        <div class="playerScore">0</div>
+        <div class="divider">-</div>
+        <div class="cpuScore">0</div>
     </div>
+    <div class="gameMessage"></div>
     <script src="./game.js"></script>
 </body>
 </html>

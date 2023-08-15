@@ -1,0 +1,42 @@
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+button {
+    color: black;
+    background-color: lime;
+    height: 50px;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.title {
+    font-size: 3em;
+    display: flex;
+    justify-content: center;
+}
+
+.subtitle {
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+}
+
+.gameChoices {
+    display: flex;
+    justify-content: space-around;
+}
+
+.rock, .paper, .scissors {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-evenly;
+}
