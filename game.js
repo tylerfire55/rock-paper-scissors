@@ -2,6 +2,21 @@ let playerScore = 0;
 let cpuScore = 0;
 let playerChoice = "scissors";
 const gameMessage = document.querySelector(".gameMessage");
+const playAgain = document.querySelector(".playAgainButton");
+const button = document.querySelectorAll("button");
+
+button.forEach(button => {
+    button.addEventListener("click", event => {
+        if(event.target.textContent != "Play again?") {
+            playerChoice = event.target.textContent;
+            game();
+            if(cpuScore == 3 || playerScore == 3){
+                gameOver();
+            }
+        }
+    })  
+})
+playAgain.addEventListener("click", restartGame)
 
 function getComputerChoice() {
     let cpuNum = Math.floor(Math.random() * 3);
@@ -55,21 +70,6 @@ function game(){
     updateScore();
 }
 
-
-const button = document.querySelectorAll("button");
-
-button.forEach(button => {
-    button.addEventListener("click", event => {
-        if(event.target.textContent != "Play again?") {
-            playerChoice = event.target.textContent;
-            game();
-            if(cpuScore == 3 || playerScore == 3){
-                gameOver();
-            }
-        }
-    })  
-})
-
 function gameOver(){
     button.forEach(button => {
         button.disabled = true;
@@ -79,6 +79,7 @@ function gameOver(){
     playAgain.style.visibility = "visible";
     playAgain.disabled = false;
 }
+
 function enableButtons(){
     button.forEach(button => {
         button.disabled = false;
@@ -86,14 +87,10 @@ function enableButtons(){
     })
 }
 
-
 function updateScore(){
     document.querySelector(".playerScore").textContent = `Player: ${playerScore}`;
     document.querySelector(".cpuScore").textContent = `CPU: ${cpuScore}`;
 }
-
-const playAgain = document.querySelector(".playAgainButton");
-playAgain.addEventListener("click", restartGame)
 
 function restartGame(){
     playerScore = 0;
