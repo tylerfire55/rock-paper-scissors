@@ -44,9 +44,7 @@ button {
 }
 
 .playAgain {
-    /*cant get this centered idk why*/
     visibility: hidden;
     display: flex;
-    flex-direction: column;
     justify-content: center;
 }

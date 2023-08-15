@@ -87,7 +87,7 @@ function updateScore(){
     document.querySelector(".cpuScore").textContent = `CPU: ${cpuScore}`;
 }
 
-const playAgain = document.querySelector(".playAgain");
+const playAgain = document.querySelector(".playAgainButton");
 playAgain.addEventListener("click", restartGame)
 
 function restartGame(){
