@@ -8,6 +8,7 @@ button {
     height: 50px;
     font-size: 1em;
     font-weight: bold;
+    border-radius: 10%;
 }
 
 .title {
@@ -34,9 +35,18 @@ button {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+
 }
 
-.scoreboard {
+.scoreboard, .gameMessage {
     display: flex;
     justify-content: space-evenly;
+}
+
+.playAgain {
+    /*cant get this centered idk why*/
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

@@ -44,33 +44,56 @@ function capitalizeFirst(string){
 
 function game(){
     const cpuChoice = getComputerChoice();
-    console.log(rockPaperScissors(playerChoice, cpuChoice));
-    console.log(`Player ${playerScore} - ${cpuScore} CPU`);
+    document.querySelector(".gameMessage").textContent = (rockPaperScissors(playerChoice, cpuChoice));
     if (playerScore == 3){
-        console.log("Game over! Player wins!")
-        playerScore = 0;
-        cpuScore = 0;
+        document.querySelector(".gameMessage").textContent = ("Game over! Player wins!");
     }
     else if (cpuScore == 3){
-        console.log("Game over! CPU wins!")
-        playerScore = 0;
-        cpuScore = 0;
+        document.querySelector(".gameMessage").textContent = ("Game over! CPU wins!")
     }
     updateScore();
 }
 
 
 const button = document.querySelectorAll("button");
+
 button.forEach(button => {
     button.addEventListener("click", event => {
+        if(event.target.textContent == "Play again?") return;
         playerChoice = event.target.textContent;
         game();
-    })
+        if(cpuScore == 3 || playerScore == 3){
+            disableButtons();
+        };
+    })  
 })
 
+function disableButtons(){
+    button.forEach(button => {
+        button.disabled = true;
+    })
+    playAgain.style.visibility = "visible";
+    playAgain.disabled = false;
+}
+function enableButtons(){
+    button.forEach(button => {
+        button.disabled = false;
+    })
+}
 
 
 function updateScore(){
-    document.querySelector(".playerScore").textContent = playerScore;
-    document.querySelector(".cpuScore").textContent = cpuScore;
+    document.querySelector(".playerScore").textContent = `Player: ${playerScore}`;
+    document.querySelector(".cpuScore").textContent = `CPU: ${cpuScore}`;
+}
+
+const playAgain = document.querySelector(".playAgain");
+playAgain.addEventListener("click", restartGame)
+
+function restartGame(){
+    playerScore = 0;
+    cpuScore = 0;
+    playAgain.style.visibility = "hidden";
+    updateScore();
+    enableButtons();
 }
