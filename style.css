@@ -1,10 +1,20 @@
-html {
-    font-family: 'Roboto', sans-serif;
+* {
+    font-family: 'Orbitron', monospace;
+    background-color: #2f2f2f;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 button {
     color: black;
-    background-color: lime;
+    background-color: yellow;
     height: 50px;
     font-size: 1em;
     font-weight: bold;
@@ -12,15 +22,22 @@ button {
 }
 
 .title {
-    font-size: 3em;
+    font-size: 2.5em;
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
+    color: skyblue;
+    text-align: center;
 }
 
 .subtitle {
     font-size: 1.5em;
     display: flex;
     justify-content: center;
+    margin-bottom: 40px;
+    color: orange;
+    margin-left: 20px;
+    text-align: center;
 }
 
 .gameChoices {
@@ -47,4 +64,28 @@ button {
     visibility: hidden;
     display: flex;
     justify-content: center;
+}
+
+.playerScore, .divider, .cpuScore {
+    font-size: 2em;
+    font-weight: bold;
+    flex: 1;
+    text-align: center;
+}
+
+.playerScore {
+    color: skyblue;
+}
+
+.divider {
+    color: yellow;
+}
+
+.cpuScore {
+    color: orange;
+}
+
+.gameMessage {
+    min-height: 20px;
+    margin-bottom: 10px;
 }
