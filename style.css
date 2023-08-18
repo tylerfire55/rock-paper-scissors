@@ -25,6 +25,8 @@ button {
     font-size: 2.5em;
     display: flex;
     justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
     margin-bottom: 20px;
     color: skyblue;
     text-align: center;
@@ -52,7 +54,6 @@ button {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-
 }
 
 .scoreboard, .gameMessage {
@@ -67,7 +68,7 @@ button {
 }
 
 .playerScore, .divider, .cpuScore {
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: bold;
     flex: 1;
     text-align: center;
@@ -87,5 +88,6 @@ button {
 
 .gameMessage {
     min-height: 20px;
+    margin-top: 10px;
     margin-bottom: 10px;
 }
